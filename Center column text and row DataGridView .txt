@@ -1,0 +1,1 @@
+grd.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
