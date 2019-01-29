@@ -1,0 +1,6 @@
+{20D04FE0-3AEA-1069-A2D8-08002B30309D}
+
+fodler :"text .{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
+
+Restore: use total commander and delete key
+		OR use CMD rename
