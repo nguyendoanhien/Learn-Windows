@@ -1,0 +1,3 @@
+run "slidetoshutdown"
+
+OR find :slidetoshutdown in C:window\System32
