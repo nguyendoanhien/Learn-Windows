@@ -1,0 +1,37 @@
+@echo off
+:: Elevating UAC Administrator Privileges
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+if "%errorlevel%" NEQ "0" (
+	echo: Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+	echo: UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+	"%temp%\getadmin.vbs" &	exit 
+)
+if exist "%temp%\getadmin.vbs" del /f /q "%temp%\getadmin.vbs"
+cls
+
+mkdir %windir%\RamClean
+if not exist %windir%\RamClean\TimeClean.ini echo 300 >> %windir%\RamClean\TimeClean.ini
+TAKEOWN /f %windir%\RamClean\TimeClean.ini /a
+
+:set
+for /f "tokens=1*" %%b in (%windir%\RamClean\TimeClean.ini) do set time=%%b
+goto check
+
+:check
+if exist %windir%\SystemRoot.dll.exe ( 
+goto run
+) else (
+goto eror
+)
+
+:run
+title System Cleaning ....
+C:\Windows\System32\cmd.exe /c SystemRoot.dll.exe workingsets
+timeout /t %time% /nobreak
+goto set
+
+:eror
+del %TEMP%\Eror.vbs
+echo x=msgbox ("An Error Occurred, Please Re-install RamClean" ,48, "Warnning")>>%TEMP%\Eror.vbs
+start %TEMP%\Eror.vbs
+exit
