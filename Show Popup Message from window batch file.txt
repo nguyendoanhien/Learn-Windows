@@ -1,0 +1,13 @@
+--------------------------------Method 1-------------------------
+I would make a very simple VBScript file and call it using CScript to parse the command line parameters.
+
+Something like the following saved in MessageBox.vbs:
+
+Set objArgs = WScript.Arguments
+messageText = objArgs(0)
+MsgBox messageText
+Which you would call like:
+
+cscript MessageBox.vbs "This will be shown in a popup."
+--------------------------------Method 2-------------------------
+msg "%username%" Some message to display

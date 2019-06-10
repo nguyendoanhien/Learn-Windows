@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+;Created by Vishal Gupta for AskVG.com
+;Windows XP, Vista and 7
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoStrCmpLogical"=dword:00000001

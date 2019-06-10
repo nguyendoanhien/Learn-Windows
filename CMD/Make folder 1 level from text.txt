@@ -1,0 +1,1 @@
+>FOR /F %i in (dirlist.txt) do mkdir %i

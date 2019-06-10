@@ -1,0 +1,2 @@
+Hid:attrib +h +s +r (filename)
+UnHid:attrib -h -s -r (filename)
